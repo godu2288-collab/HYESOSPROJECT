@@ -18,7 +18,7 @@
             min-height: 100vh;
         }
 
-        /* ===== ШАПКА С ЛОГОТИПОМ ===== */
+        /* ===== ШАПКА ===== */
         header {
             display: flex;
             align-items: center;
@@ -59,7 +59,6 @@
             padding: 50px 40px 80px;
         }
 
-        /* ===== ВЕРХНИЙ БЛОК: ОБЛОЖКА + ИНФО ===== */
         .game-header {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -126,23 +125,114 @@
             margin-bottom: 25px;
         }
 
-        /* ===== КНОПКА "СКОРО" ===== */
-        .btn-disabled {
-            display: block;
-            padding: 14px 20px;
+        /* ===== КНОПКИ ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
             border-radius: 10px;
-            background: #1a1a1a;
-            color: #555;
-            border: 2px solid #333;
+            background: #000;
+            color: #fff;
+            border: 2px solid #fff;
             font-weight: bold;
             font-size: 15px;
             text-align: center;
-            cursor: not-allowed;
-            pointer-events: none;
-            max-width: 260px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        /* ===== СЕКЦИЯ ТРЕЙЛЕРА ===== */
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-disabled {
+            background: #1a1a1a;
+            color: #555;
+            border-color: #333;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* ===== ПАНЕЛЬ ВВОДА КЛЮЧА ===== */
+        .key-panel {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 15px;
+            max-width: 400px;
+        }
+
+        .key-panel.open {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .key-panel label {
+            display: block;
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .key-input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            background: #000;
+            border: 2px solid #333;
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 3px;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Courier New', monospace;
+        }
+
+        .key-input:focus {
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .key-input::placeholder {
+            color: #444;
+            letter-spacing: 1px;
+        }
+
+        .key-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .key-buttons .btn {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 14px;
+        }
+
+        .key-message {
+            margin-top: 15px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        .key-message.error {
+            color: #ff5555;
+        }
+
+        .key-message.success {
+            color: #55ff77;
+        }
+
+        /* ===== ТРЕЙЛЕР ===== */
         .trailer-wrapper {
             margin-bottom: 60px;
         }
@@ -166,7 +256,7 @@
             border: 0;
         }
 
-        /* ===== СЕКЦИЯ СКРИНШОТОВ ===== */
+        /* ===== СКРИНШОТЫ ===== */
         .section-title {
             font-size: 28px;
             margin-bottom: 25px;
@@ -215,36 +305,17 @@
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-
-            .logo img {
-                height: 45px;
-            }
-
-            .container {
-                padding: 30px 20px 60px;
-            }
-
-            .game-header {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .game-header-info h1 {
-                font-size: 28px;
-            }
-
-            .section-title {
-                font-size: 22px;
-            }
+            header { padding: 15px 20px; }
+            .logo img { height: 45px; }
+            .container { padding: 30px 20px 60px; }
+            .game-header { grid-template-columns: 1fr; gap: 25px; }
+            .game-header-info h1 { font-size: 28px; }
+            .section-title { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА -->
     <header>
         <div class="logo">
             <img src="../logo.png" alt="Логотип">
@@ -254,7 +325,7 @@
 
     <div class="container">
 
-        <!-- ВЕРХНИЙ БЛОК: ОБЛОЖКА + ИНФО -->
+        <!-- ВЕРХНИЙ БЛОК -->
         <div class="game-header">
             <div class="game-header-cover">
                 <img src="../game2-cover.jpg" alt="HYESOSIKI3D: The Missing Person">
@@ -264,25 +335,41 @@
                 <h1>HYESOSIKI3D: The Missing Person <span class="status-badge">СКОРО</span></h1>
 
                 <div class="release-date">
-                    <span>Дата релиза:</span> В квартале 2026
+                    <span>Дата релиза:</span> 17 окбятря 2026
                 </div>
 
                 <p class="game-description">
                    Анна Павловна ехала по ночной трассе, когда всё пошло не так. Пенисбак всмятку, связь не ловит, вокруг ни души. Единственный выход идти в лес за помощью.
                 </p>
 
-                <span class="btn-disabled">Скоро...</span>
+                <!-- Кнопка "Показ" -->
+                <button class="btn" onclick="toggleKeyPanel()">Показ</button>
+
+                <!-- Панель ввода ключа -->
+                <div class="key-panel" id="keyPanel">
+                    <label for="keyInput">Введите ключ доступа:</label>
+                    <input
+                        type="password"
+                        id="keyInput"
+                        class="key-input"
+                        placeholder="••••••••••"
+                        autocomplete="off"
+                        onkeydown="if(event.key==='Enter') checkKey()">
+                    <div class="key-buttons">
+                        <button class="btn" onclick="checkKey()">Открыть</button>
+                        <button class="btn" onclick="toggleKeyPanel()">Отмена</button>
+                    </div>
+                    <div class="key-message" id="keyMessage"></div>
+                </div>
             </div>
         </div>
 
-        <!-- ===== ТРЕЙЛЕР ===== -->
+        <!-- ТРЕЙЛЕР -->
         <h2 class="section-title">Трейлер</h2>
         <div class="trailer-wrapper">
             <div class="trailer-frame">
-                <!-- ЗАМЕНИ VIDEO_ID НА ID ТВОЕГО РОЛИКА НА YOUTUBE -->
-                <!-- Пример: ссылка https://www.youtube.com/watch?v=ABC123XYZ  →  ID = ABC123XYZ -->
                 <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID"
+                    src="https://www.youtube.com/embed/CZEEJyIxJjM"
                     title="HYESOSIKI3D: The Missing Person — Трейлер"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -294,16 +381,16 @@
         <h2 class="section-title">Скриншоты</h2>
         <div class="screenshots">
             <div class="screenshot">
-                <img src="../screenshots/screen1.jpg" alt="Скриншот 1">
+                <img src="../screenshots/game2-screen1.jpg" alt="Скриншот 1">
             </div>
             <div class="screenshot">
-                <img src="../screenshots/screen2.jpg" alt="Скриншот 2">
+                <img src="../screenshots/game2-screen2.jpg" alt="Скриншот 2">
             </div>
             <div class="screenshot">
-                <img src="../screenshots/screen3.jpg" alt="Скриншот 3">
+                <img src="../screenshots/game2-screen3.jpg" alt="Скриншот 3">
             </div>
             <div class="screenshot">
-                <img src="../screenshots/screen4.jpg" alt="Скриншот 4">
+                <img src="../screenshots/game2-screen4.jpg" alt="Скриншот 4">
             </div>
         </div>
 
@@ -312,6 +399,63 @@
     <footer>
         © 2026 HYESOSPROJECT Часть этой программы НЕ распространяется по лицензии © 2026-2026 Все права НЕ защищены. Все товарные знаки являются собственностью их владельцев
     </footer>
+
+    <!-- ===== ЛОГИКА КЛЮЧА ===== -->
+    <script>
+        // 🔑 ЗДЕСЬ НАСТРАИВАЕШЬ КЛЮЧИ И ССЫЛКИ
+        const KEYS = {
+            "HYESOS2026":   "https://example.com/game2-download.zip",
+            "SECRET123":    "https://example.com/another-link.zip",
+            "VIPACCESS":    "https://example.com/vip-download.zip"
+        };
+
+        function toggleKeyPanel() {
+            const panel = document.getElementById('keyPanel');
+            const input = document.getElementById('keyInput');
+            const msg = document.getElementById('keyMessage');
+
+            panel.classList.toggle('open');
+
+            if (panel.classList.contains('open')) {
+                input.value = '';
+                msg.textContent = '';
+                msg.className = 'key-message';
+                setTimeout(() => input.focus(), 100);
+            }
+        }
+
+        function checkKey() {
+            const input = document.getElementById('keyInput');
+            const msg = document.getElementById('keyMessage');
+            const key = input.value.trim();
+
+            if (!key) {
+                msg.textContent = '⚠ Введите ключ';
+                msg.className = 'key-message error';
+                return;
+            }
+
+            // Проверка ключа (без учёта регистра)
+            const matched = Object.keys(KEYS).find(
+                k => k.toLowerCase() === key.toLowerCase()
+            );
+
+            if (matched) {
+                msg.textContent = '✓ Ключ принят! Перенаправление...';
+                msg.className = 'key-message success';
+
+                // Редирект на ссылку скачивания
+                setTimeout(() => {
+                    window.location.href = KEYS[matched];
+                }, 800);
+            } else {
+                msg.textContent = '✗ Неверный ключ. Попробуйте снова.';
+                msg.className = 'key-message error';
+                input.value = '';
+                input.focus();
+            }
+        }
+    </script>
 
 </body>
 </html>
