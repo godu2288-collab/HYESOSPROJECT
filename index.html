@@ -77,10 +77,6 @@
             box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
         }
 
-        .game-card.coming-soon:hover {
-            border-color: #444;
-        }
-
         .game-cover {
             width: 100%;
             height: 200px;
@@ -97,27 +93,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .game-card.coming-soon .game-cover::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-        }
-
-        .coming-soon-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #fff;
-            color: #000;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 20px;
-            z-index: 2;
-            letter-spacing: 1px;
         }
 
         /* ===== ЗЕЛЁНЫЙ БЕЙДЖ DEMO ===== */
@@ -179,14 +154,6 @@
             color: #000;
         }
 
-        .btn-disabled {
-            background: #1a1a1a;
-            color: #555;
-            border-color: #333;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
         .btn-details {
             background: #000;
             color: #fff;
@@ -230,24 +197,23 @@
             </div>
             <div class="game-info">
                 <h3>HYESOSIKI3D</h3>
-                <p>Главная героиня - Анна ,прощаясь с родным городом, помогает лучшим друзьям перед тем как отправиться в дальнее путешествие.</p>
+                <p>Классика.</p>
 
                 <a href="game1/details.html" class="btn btn-primary">Скачать</a>
                 <a href="game1/details.html" class="btn btn-details">Подробности</a>
             </div>
         </div>
 
-        <!-- ===== ИГРА 2 (скоро) ===== -->
-        <div class="game-card coming-soon">
+        <!-- ===== ИГРА 2 ===== -->
+        <div class="game-card active">
             <div class="game-cover">
-                <span class="coming-soon-badge">СКОРО</span>
                 <img src="game2-cover.jpg" alt="HYESOSIKI3D: The Missing Person">
             </div>
             <div class="game-info">
                 <h3>HYESOSIKI3D: The Missing Person</h3>
                 <p>Анна Павловна ехала по ночной трассе, когда всё пошло не так. Пенисбайк всмятку, связь не ловит, вокруг ни души. Единственный выход идти в лес за помощью.</p>
 
-                <span class="btn btn-disabled">Скоро...</span>
+                <a href="game2/details.html" class="btn btn-primary">Скачать</a>
                 <a href="game2/details.html" class="btn btn-details">Подробности</a>
             </div>
         </div>
