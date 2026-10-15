@@ -169,11 +169,156 @@
             margin-top: 10px;
         }
 
+        /* ===== ПЛАНИРУЕМЫЕ ПРОЕКТЫ ===== */
+        .planned-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        .planned-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .planned-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+
+        .planned-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .planned-card {
+            background: #0d0d0d;
+            border: 1px dashed #333;
+            border-radius: 20px;
+            padding: 30px 25px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .planned-card:hover {
+            border-color: #888;
+            border-style: solid;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.08);
+        }
+
+        .planned-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: #1a1a1a;
+            color: #888;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+        }
+
+        .planned-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .planned-card p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        /* ===== СБОР СРЕДСТВ ===== */
+        .fund-block {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px dashed #333;
+        }
+
+        .fund-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .fund-label .fund-amount {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .fund-progress {
+            width: 100%;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            margin-bottom: 15px;
+        }
+
+        .fund-progress-fill {
+            height: 100%;
+            width: 0%; /* ← МЕНЯЙ ЗДЕСЬ ПРОЦЕНТ */
+            background: linear-gradient(90deg, #00ff66, #00cc55);
+            border-radius: 20px;
+            transition: width 0.6s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.5);
+        }
+
+        .btn-donate {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background: #000;
+            color: #fff;
+            border: 2px solid #00ff66;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-donate:hover {
+            background: #00ff66;
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.6);
+        }
+
         footer {
             text-align: center;
             padding: 30px;
             color: #555;
             border-top: 1px solid #222;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .logo img { height: 45px; }
+            .library-title { font-size: 32px; }
+            .games-grid { padding: 0 20px 60px; }
+            .planned-section { padding: 0 20px 60px; }
+            .planned-title { font-size: 24px; }
         }
     </style>
 </head>
@@ -233,6 +378,43 @@
         </div>
 
     </div>
+
+    <!-- ===== ПЛАНИРУЕМЫЕ ПРОЕКТЫ ===== -->
+    <section class="planned-section">
+        <h2 class="planned-title">Планируемые проекты</h2>
+        <p class="planned-subtitle">Что нас ждёт в будущем</p>
+
+        <div class="planned-grid">
+
+            <!-- ===== ПРОЕКТ 1 — СО СБОРОМ СРЕДСТВ ===== -->
+            <div class="planned-card">
+                <span class="planned-badge">В РАЗРАБОТКЕ</span>
+                <h3>HYESOSIKI 3D The Missing Person CO-OP DLS</h3>
+                <p>DLS к игре HYESOSIKI 3D The Missing Person. Альтернативная сюжетка для 4-х игроков </p>
+
+                <!-- Блок сбора средств -->
+                <div class="fund-block">
+                    <div class="fund-label">
+                        <span>Собрано:</span>
+                        <span class="fund-amount">0 ₽ из 1000 ₽</span>
+                    </div>
+                    <div class="fund-progress">
+                        <!-- МЕНЯЙ width: на нужный процент -->
+                        <div class="fund-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <a href="https://tips.yandex.ru/guest/payment/9476382" class="btn-donate" target="_blank" rel="noopener">💚 Задонатить</a>
+                </div>
+            </div>
+
+            <!-- ===== ПРОЕКТ 2 — БЕЗ СБОРА ===== -->
+            <div class="planned-card">
+                <span class="planned-badge">В планах</span>
+                <h3>HYESOSIKI ONLINE</h3>
+                <p>Ещё один проект в планах. Шутер от 1 лица с возможностью кататься на пеннис байке, игра от 2-х до 7 игроков</p>
+            </div>
+
+        </div>
+    </section>
 
     <footer>
         © 2026 HYESOSPROJECT Часть этой программы НЕ распространяется по лицензии © 2026-2026 Все права НЕ защищены. Все товарные знаки являются собственностью их владельцев 
