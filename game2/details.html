@@ -105,19 +105,6 @@
             margin-right: 6px;
         }
 
-        .status-badge {
-            display: inline-block;
-            background: #fff;
-            color: #000;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 20px;
-            letter-spacing: 1px;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
         .game-description {
             color: #bbb;
             font-size: 16px;
@@ -125,7 +112,7 @@
             margin-bottom: 25px;
         }
 
-        /* ===== КНОПКИ ===== */
+        /* ===== КНОПКА СКАЧАТЬ ===== */
         .btn {
             display: inline-block;
             padding: 14px 30px;
@@ -144,92 +131,7 @@
         .btn:hover {
             background: #fff;
             color: #000;
-        }
-
-        .btn-disabled {
-            background: #1a1a1a;
-            color: #555;
-            border-color: #333;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        /* ===== ПАНЕЛЬ ВВОДА КЛЮЧА ===== */
-        .key-panel {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background: #0d0d0d;
-            border: 1px solid #222;
-            border-radius: 15px;
-            max-width: 400px;
-        }
-
-        .key-panel.open {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .key-panel label {
-            display: block;
-            color: #bbb;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .key-input {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 10px;
-            background: #000;
-            border: 2px solid #333;
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 3px;
-            outline: none;
-            transition: 0.3s;
-            font-family: 'Courier New', monospace;
-        }
-
-        .key-input:focus {
-            border-color: #fff;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .key-input::placeholder {
-            color: #444;
-            letter-spacing: 1px;
-        }
-
-        .key-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .key-buttons .btn {
-            flex: 1;
-            padding: 12px 15px;
-            font-size: 14px;
-        }
-
-        .key-message {
-            margin-top: 15px;
-            font-size: 14px;
-            min-height: 20px;
-        }
-
-        .key-message.error {
-            color: #ff5555;
-        }
-
-        .key-message.success {
-            color: #55ff77;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
         }
 
         /* ===== ТРЕЙЛЕР ===== */
@@ -321,19 +223,6 @@
             box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
         }
 
-        .dlc-badge {
-            display: inline-block;
-            align-self: flex-start;
-            background: #fff;
-            color: #000;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 20px;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
         .dlc-info h3 {
             font-size: 20px;
             margin-bottom: 10px;
@@ -406,7 +295,7 @@
             </div>
 
             <div class="game-header-info">
-                <h1>HYESOSIKI3D: The Missing Person <span class="status-badge">СКОРО</span></h1>
+                <h1>HYESOSIKI3D: The Missing Person</h1>
 
                 <div class="release-date">
                     <span>Дата релиза:</span> 15 октября 2026
@@ -416,25 +305,14 @@
                    Анна Павловна ехала по ночной трассе, когда всё пошло не так. Пенисбак всмятку, связь не ловит, вокруг ни души. Единственный выход идти в лес за помощью.
                 </p>
 
-                <!-- Кнопка "Показ" -->
-                <button class="btn" onclick="toggleKeyPanel()">Показ</button>
-
-                <!-- Панель ввода ключа -->
-                <div class="key-panel" id="keyPanel">
-                    <label for="keyInput">Введите ключ доступа:</label>
-                    <input
-                        type="password"
-                        id="keyInput"
-                        class="key-input"
-                        placeholder="••••••••••"
-                        autocomplete="off"
-                        onkeydown="if(event.key==='Enter') checkKey()">
-                    <div class="key-buttons">
-                        <button class="btn" onclick="checkKey()">Открыть</button>
-                        <button class="btn" onclick="toggleKeyPanel()">Отмена</button>
-                    </div>
-                    <div class="key-message" id="keyMessage"></div>
-                </div>
+                <!-- ===== КНОПКА СКАЧАТЬ ===== -->
+                <!-- ЗАМЕНИ ССЫЛКУ НА СВОЮ ПРЯМУЮ ССЫЛКУ -->
+                <a href="https://www.dropbox.com/scl/fi/5h5oc1qj5s6360mx0cqsg/setup.exe?rlkey=g70f2mhvn3j3p1utxu940vmlm&st=qjlpv1tn&dl=1"
+                   class="btn"
+                   target="_blank"
+                   rel="noopener">
+                    ⬇ Скачать
+                </a>
             </div>
         </div>
 
@@ -474,9 +352,7 @@
         <!-- ===== РАЗДЕЛ DLC ===== -->
         <h2 class="section-title">DLC</h2>
         <div class="dlc-grid">
-            <!-- DLC 1 -->
             <div class="dlc-card" onclick="showDlcMessage(this)">
-                <span class="dlc-badge">СКОРО</span>
                 <div class="dlc-info">
                     <h3>HYESOSIKI 3D: The Missing Person CO-OP</h3>
                     <p>Альтернативная сюжетная линия с друзьями до 4-х человек</p>
@@ -491,61 +367,7 @@
         © 2026 HYESOSPROJECT Часть этой программы НЕ распространяется по лицензии © 2026-2026 Все права НЕ защищены. Все товарные знаки являются собственностью их владельцев
     </footer>
 
-    <!-- ===== ЛОГИКА ===== -->
     <script>
-        // 🔑 ЗДЕСЬ НАСТРАИВАЕШЬ КЛЮЧИ И ССЫЛКИ
-        const KEYS = {
-            "HYESOS2026":   "https://www.dropbox.com/scl/fi/5h5oc1qj5s6360mx0cqsg/setup.exe?rlkey=g70f2mhvn3j3p1utxu940vmlm&st=qjlpv1tn&dl=1",
-            "SECRET123":    "https://example.com/another-link.zip",
-            "VIPACCESS":    "https://example.com/vip-download.zip"
-        };
-
-        function toggleKeyPanel() {
-            const panel = document.getElementById('keyPanel');
-            const input = document.getElementById('keyInput');
-            const msg = document.getElementById('keyMessage');
-
-            panel.classList.toggle('open');
-
-            if (panel.classList.contains('open')) {
-                input.value = '';
-                msg.textContent = '';
-                msg.className = 'key-message';
-                setTimeout(() => input.focus(), 100);
-            }
-        }
-
-        function checkKey() {
-            const input = document.getElementById('keyInput');
-            const msg = document.getElementById('keyMessage');
-            const key = input.value.trim();
-
-            if (!key) {
-                msg.textContent = '⚠ Введите ключ';
-                msg.className = 'key-message error';
-                return;
-            }
-
-            const matched = Object.keys(KEYS).find(
-                k => k.toLowerCase() === key.toLowerCase()
-            );
-
-            if (matched) {
-                msg.textContent = '✓ Ключ принят! Перенаправление...';
-                msg.className = 'key-message success';
-
-                setTimeout(() => {
-                    window.location.href = KEYS[matched];
-                }, 800);
-            } else {
-                msg.textContent = '✗ Неверный ключ. Попробуйте снова.';
-                msg.className = 'key-message error';
-                input.value = '';
-                input.focus();
-            }
-        }
-
-        // ===== DLC =====
         function showDlcMessage(card) {
             const status = card.querySelector('.dlc-status');
             status.textContent = 'Скоро...';
